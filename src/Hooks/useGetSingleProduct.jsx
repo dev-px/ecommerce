@@ -1,5 +1,6 @@
 "use client";
-import { useEffect ,useState } from "react";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const useGetSingleProduct = (id) => {
   const [productDetail, setProductDetail] = useState(null);
@@ -13,6 +14,7 @@ const useGetSingleProduct = (id) => {
         const product = await response.json();
         setProductDetail(product);
       } catch (error) {
+        toast.error("Something went wrong!", { className: "shadow-lg text-[12px]" });
         console.error(error);
       } finally {
         setIsLoading(false);

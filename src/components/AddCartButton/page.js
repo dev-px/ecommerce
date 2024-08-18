@@ -12,11 +12,11 @@ const ProductPage = ({ product, isAdded }) => {
     const addItemToCart = (product) => {
         setProduct((prevItems) => [...prevItems, product]);
         setAddToCart((prevItems) => [...prevItems, product.id]);
-        toast.success("Item is added to the cart",{className:"shadow-lg text-[12px]"})
         setQuantity((prevQuan) => ({
             ...prevQuan,
             [product.id]: (prevQuan[product.id] || 0) + 1,
         }));
+        toast.success("Item is added to the cart", { className: "shadow-lg text-[12px]" })
     };
 
     return (

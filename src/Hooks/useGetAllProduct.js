@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 const useGetAllProduct = (limit) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -18,8 +19,8 @@ const useGetAllProduct = (limit) => {
                 const product = await response.json();
                 setProductsList(product.products);
                 setTotalProducts(product.total);
-                console.log(product.products);
             } catch (error) {
+                toast.error("Something went wrong!", { className: "shadow-lg text-[12px]" });
                 console.error(error);
             } finally {
                 setIsLoading(false);

@@ -1,15 +1,18 @@
 import React from 'react'
 import { IoMdStar } from "react-icons/io";
 import Link from "next/link";
+import Image from 'next/image';
 import AddCartButton from "@/components/AddCartButton/page"
 
 const page = ({ item, isAdded }) => {
     return (
         <div className="bg-gray-800 shadow-lg rounded-lg overflow-hidden flex flex-col h-full transition-transform transform hover:scale-105">
-            <img
+            <Image
                 src={item?.thumbnail}
+                width={500}
+                height={500}
                 alt={item?.title}
-                className="w-full h-48 object-cover"
+                className=" object-cover"
             />
             <div className="p-4 flex flex-col flex-grow">
                 <Link href={`/product/${item.id}`} className="decoration-0">

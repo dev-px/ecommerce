@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { MdOutlineAdd } from "react-icons/md";
 import { MdOutlineMinimize } from "react-icons/md";
 
-const page = ({ item }) => {
+const Page = ({ item }) => {
     const { quantity, setQuantity } = useCart();
     const increaseQuantity = (prod) => {
         setQuantity((prevQuan) => ({
@@ -37,4 +37,4 @@ const page = ({ item }) => {
     )
 }
 
-export default page
+export default Page;

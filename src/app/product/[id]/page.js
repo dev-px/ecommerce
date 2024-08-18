@@ -6,11 +6,12 @@ import { useCart } from '@/context/Cart';
 import SkeletonLoading from "@/components/SkeletonLoading/page"
 import AddCartButton from "@/components/AddCartButton/page"
 import NoItem from "@/components/NoItem/page";
+import Image from "next/image";
 
 const Page = ({ params }) => {
   const { addToCart } = useCart();
   const { productDetail, isLoading } = useGetSingleProduct(params.id);
-  console.log("productDetail", productDetail);
+
   return (
     <>
       {isLoading ? (
@@ -22,8 +23,10 @@ const Page = ({ params }) => {
           {/* Product Image and Details */}
           <div className="flex flex-col lg:flex-row gap-12 bg-gray-800 p-8 rounded-lg shadow-lg">
             <div className="lg:w-1/2 flex justify-center items-center bg-gray-800">
-              <img
+              <Image
                 src={productDetail?.thumbnail}
+                width={500}
+                height={500}
                 alt={productDetail?.title}
                 className="w-full h-auto object-cover rounded-lg transform hover:scale-105 transition-transform duration-300 bg-gray-800 ease-in-out"
               />

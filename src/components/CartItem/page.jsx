@@ -1,14 +1,17 @@
 import React from 'react';
 import QuantityButton from "@/components/QuantityButton/page";
 import { MdDelete } from "react-icons/md";
+import Image from 'next/image';
 
 const Page = ({ item, removeCartItem }) => {
     return (
         <div className="flex flex-col sm:flex-row items-center gap-4 p-5 mb-6 bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-700">
-            <img
-                src={item.thumbnail}
-                alt={item.title}
-                className="w-full sm:w-28 h-28 object-cover rounded-md shadow-md"
+            <Image
+                src={item?.thumbnail}
+                width={500}
+                height={500}
+                alt={item?.title}
+                className="sm:w-28 object-cover rounded-md shadow-md"
             />
             <div className="flex-1 text-center sm:text-left">
                 <h2 className="text-xl font-bold text-white">{item.title}</h2>
